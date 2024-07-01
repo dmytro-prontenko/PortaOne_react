@@ -5,7 +5,7 @@
 1. Клонуйте репозиторій:
 
     ```bash
-    git clone https://github.com/username/project-name.git
+    git clone https://github.com/dmytro-prontenko/PortaOne_react.git
     ```
 
 2. Перейдіть до директорії проекту:
@@ -22,7 +22,10 @@
 
 ## Використання
 
-Для запуску проекту в режимі розробки використовуйте команду:
+Для запуску проекту використовуйте команду:
 
 ```bash
-npm start
+npm run dev
+```
+
+Далі дійте по інструкції на сторінці
