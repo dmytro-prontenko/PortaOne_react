@@ -78,11 +78,11 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 800px;
 }
 
 .result-span {
   color: yellowgreen;
+  width: 400px;
 }
 
 .result-row {
