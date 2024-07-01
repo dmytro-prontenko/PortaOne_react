@@ -1,37 +1,66 @@
-export const findMinValue = (arr) => arr[0];
+export const findMinValue = (arr) => {
+    const sortedArr = arr.sort((a, b) => a - b);
+    return sortedArr[0];
+};
 
-export const findMaxValue = (arr) => arr[arr.length - 1];
+export const findMaxValue = (arr) => {
+    const sortedArr = arr.sort((a, b) => a - b);
+    return sortedArr[sortedArr.length - 1];
+};
 
 export const increasingSequence = (arr) => {
-    let acc = 0;
-    let maxAcc = 0;
-    arr.forEach((element, index) => {
-        if (element < arr[index + 1]) {
+    let acc = 1;
+    let maxAcc = 1;
+    let resArr = [arr[0]];
+    let tempArr = [arr[0]];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > arr[i - 1]) {
             acc++;
+            tempArr.push(arr[i]);
         } else {
-            if (maxAcc < acc) {
+            if (acc > maxAcc) {
                 maxAcc = acc;
+                resArr = [...tempArr];
             }
-            acc = 0;
+            acc = 1;
+            tempArr = [arr[i]];
         }
-    });
-    return maxAcc;
+    }
+    if (acc > maxAcc) {
+        maxAcc = acc;
+        resArr = [...tempArr];
+    }
+
+    return resArr.join(', ');
 };
 
 export const decreasingSequence = (arr) => {
-    let acc = 0;
-    let maxAcc = 0;
-    arr.forEach((element, index) => {
-        if (element > arr[index + 1]) {
+    let acc = 1;
+    let maxAcc = 1;
+    let resArr = [arr[0]];
+    let tempArr = [arr[0]];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) {
             acc++;
+            tempArr.push(arr[i]);
         } else {
-            if (maxAcc < acc) {
+            if (acc > maxAcc) {
                 maxAcc = acc;
+                resArr = [...tempArr];
             }
-            acc = 0;
+            acc = 1;
+            tempArr = [arr[i]];
         }
-    });
-    return maxAcc;
+    }
+
+    if (acc > maxAcc) {
+        maxAcc = acc;
+        resArr = [...tempArr];
+    }
+
+    return resArr.join(", ");
 };
 
 export const findMedian = (arr) => {
@@ -43,4 +72,4 @@ export const findMedian = (arr) => {
 export const calculateAverage = (arr) => {
     const sum = arr.reduce((acc, num) => acc + num, 0);
     return (sum / arr.length).toFixed(2);
-};
+}
